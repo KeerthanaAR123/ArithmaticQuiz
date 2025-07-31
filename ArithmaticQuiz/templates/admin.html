@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Add New Question</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('add_question_route') }}">
+                    <div class="mb-3">
+                        <label for="question" class="form-label">Question</label>
+                        <textarea class="form-control" name="question" required rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="option1" class="form-label">Option A</label>
+                        <input type="text" class="form-control" name="option1" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="option2" class="form-label">Option B</label>
+                        <input type="text" class="form-control" name="option2" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="option3" class="form-label">Option C</label>
+                        <input type="text" class="form-control" name="option3" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="option4" class="form-label">Option D</label>
+                        <input type="text" class="form-control" name="option4" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="correct_answer" class="form-label">Correct Answer</label>
+                        <select class="form-control" name="correct_answer" required>
+                            <option value="1">Option A</option>
+                            <option value="2">Option B</option>
+                            <option value="3">Option C</option>
+                            <option value="4">Option D</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="difficulty" class="form-label">Difficulty</label>
+                        <select class="form-control" name="difficulty" required>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Add Question</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Existing Questions ({{ questions|length }})</h5>
+            </div>
+            <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                {% for question in questions %}
+                <div class="mb-3 p-3 border rounded">
+                    <h6>{{ question.question }}</h6>
+                    <small class="text-muted">
+                        Difficulty: {{ question.difficulty|title }} | 
+                        Correct: Option {{ question.correct_answer }}
+                    </small>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-success text-white text-center">
+                <h2>Quiz Complete!</h2>
+            </div>
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="text-primary">{{ score }}</h3>
+                        <p>Correct Answers</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="text-info">{{ "%.1f"|format(percentage) }}%</h3>
+                        <p>Score</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="text-warning">{{ time_taken }}s</h3>
+                        <p>Time Taken</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    {% if percentage >= 80 %}
+                        <div class="alert alert-success">
+                            <h4>Excellent! 🎉</h4>
+                            <p>You have a strong understanding of arithmetic progressions!</p>
+                        </div>
+                    {% elif percentage >= 60 %}
+                        <div class="alert alert-warning">
+                            <h4>Good Job! 👍</h4>
+                            <p>You're doing well, but there's room for improvement.</p>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <h4>Keep Learning! 📚</h4>
+                            <p>Practice more to master arithmetic progressions.</p>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mt-4">
+                    <a href="{{ url_for('quiz') }}" class="btn btn-primary me-2">Take Another Quiz</a>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">Home</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Answer Review -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Answer Review</h5>
+            </div>
+            <div class="card-body">
+                {% for answer in answers %}
+                <div class="mb-3 p-3 border rounded">
+                    <h6>Question {{ loop.index }}: {{ answer.question }}</h6>
+                    <p class="mb-1">
+                        Your answer: Option {{ answer.selected }} 
+                        {% if answer.is_correct %}
+                            <span class="badge bg-success">Correct ✓</span>
+                        {% else %}
+                            <span class="badge bg-danger">Wrong ✗</span>
+                        {% endif %}
+                    </p>
+                    {% if not answer.is_correct %}
+                        <p class="mb-0 text-success">Correct answer: Option {{ answer.correct }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

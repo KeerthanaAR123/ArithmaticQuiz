@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold text-primary">Welcome to AP Quiz Master</h1>
+        <p class="lead">Master Arithmetic Progressions with Interactive Learning & Assessment</p>
+        
+        {% if not session.username %}
+            <div class="mt-4">
+                <a href="{{ url_for('register') }}" class="btn btn-success btn-lg me-3">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">Login</a>
+            </div>
+        {% else %}
+            <div class="mt-4">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Go to Dashboard</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 feature-card">
+            <div class="card-body text-center">
+                <div class="feature-icon">📚</div>
+                <h5 class="card-title">Prerequisites</h5>
+                <p class="card-text">Learn the fundamental concepts and mathematical foundations needed for arithmetic progressions.</p>
+                <a href="{{ url_for('prerequisites') }}" class="btn btn-outline-primary">Learn Basics</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 feature-card">
+            <div class="card-body text-center">
+                <div class="feature-icon">🎥</div>
+                <h5 class="card-title">Video Tutorials</h5>
+                <p class="card-text">Watch comprehensive YouTube tutorials covering all AP concepts with examples and practice problems.</p>
+                <a href="{{ url_for('tutorials') }}" class="btn btn-outline-primary">Watch Videos</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 feature-card">
+            <div class="card-body text-center">
+                <div class="feature-icon">🎯</div>
+                <h5 class="card-title">Take Quiz</h5>
+                <p class="card-text">Test your knowledge with our comprehensive quiz system and track your progress over time.</p>
+                {% if session.username %}
+                    <a href="{{ url_for('quiz') }}" class="btn btn-success">Start Quiz</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-success">Login to Quiz</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Why Choose AP Quiz Master?</h4>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h5>📊 Performance Analytics</h5>
+                        <p>Track your progress with detailed performance analysis and improvement suggestions.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5>🏆 Comprehensive Testing</h5>
+                        <p>Multiple difficulty levels from basic concepts to advanced problem solving.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5>📱 User-Friendly</h5>
+                        <p>Clean, responsive design that works perfectly on all devices.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5>🔒 Secure Learning</h5>
+                        <p>Personal accounts to save progress and compete with classmates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

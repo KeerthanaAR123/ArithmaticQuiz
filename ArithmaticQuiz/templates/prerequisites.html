@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Prerequisites for Arithmetic Progressions</h2>
+        <p class="lead">Master these fundamental concepts before diving into AP quizzes.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5>📊 1. Basic Number Operations</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Addition & Subtraction:</strong> Comfortable with basic arithmetic operations</li>
+                    <li><strong>Multiplication & Division:</strong> Understanding of multiplication tables and division</li>
+                    <li><strong>Fractions & Decimals:</strong> Converting between fractions and decimals</li>
+                </ul>
+                <div class="alert alert-info">
+                    <strong>Quick Check:</strong> Can you calculate 15 + 7, 24 ÷ 3, and convert 3/4 to decimal? If yes, you're ready!
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5>🔢 2. Understanding Sequences</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>What is a Sequence?</strong> An ordered list of numbers following a pattern</li>
+                    <li><strong>Examples:</strong> 2, 4, 6, 8, 10... (even numbers)</li>
+                    <li><strong>Terms:</strong> Each number in a sequence is called a "term"</li>
+                </ul>
+                <div class="alert alert-success">
+                    <strong>Practice:</strong> Try to identify the pattern in: 5, 10, 15, 20, ?
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-white">
+                <h5>➕ 3. Pattern Recognition</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Common Difference:</strong> The constant value added to get the next term</li>
+                    <li><strong>Example:</strong> In 3, 7, 11, 15... the common difference is 4</li>
+                    <li><strong>Formula Basics:</strong> Understanding variables like 'a' (first term), 'd' (common difference), 'n' (term number)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5>📝 4. Basic Algebra</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Variables:</strong> Understanding letters that represent numbers (a, n, d)</li>
+                    <li><strong>Substitution:</strong> Replacing variables with actual numbers</li>
+                    <li><strong>Simple Equations:</strong> Solving for unknown values</li>
+                </ul>
+                <div class="alert alert-primary">
+                    <strong>Example:</strong> If a = 5 and d = 3, what is a + 2d? Answer: 5 + 2(3) = 11
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h5>🎯 Quick Assessment</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Before starting AP quizzes, can you:</strong></p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check1">
+                    <label class="form-check-label" for="check1">
+                        Perform basic arithmetic operations?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check2">
+                    <label class="form-check-label" for="check2">
+                        Identify patterns in number sequences?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check3">
+                    <label class="form-check-label" for="check3">
+                        Work with simple algebraic expressions?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check4">
+                    <label class="form-check-label" for="check4">
+                        Substitute values into formulas?
+                    </label>
+                </div>
+
+                <div class="mt-3">
+                    <div class="alert alert-success">
+                        <small>If you checked all boxes, you're ready for AP tutorials and quizzes!</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <h6>Next Steps</h6>
+                <a href="{{ url_for('tutorials') }}" class="btn btn-primary btn-sm mb-2 d-block">Watch Tutorials</a>
+                <a href="{{ url_for('quiz') }}" class="btn btn-success btn-sm d-block">Take Practice Quiz</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

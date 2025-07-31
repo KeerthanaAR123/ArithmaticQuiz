@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Welcome, {{ session.username }}! 👋</h2>
+        <p class="lead">Track your learning progress and access all AP resources.</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">📚 Prerequisites</h5>
+                <p class="card-text">Review fundamental concepts</p>
+                <a href="{{ url_for('prerequisites') }}" class="btn btn-outline-primary">Study</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">🎥 Tutorials</h5>
+                <p class="card-text">Watch video lessons</p>
+                <a href="{{ url_for('tutorials') }}" class="btn btn-outline-info">Watch</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">🎯 Take Quiz</h5>
+                <p class="card-text">Test your knowledge</p>
+                <a href="{{ url_for('quiz') }}" class="btn btn-success">Start</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">📊 Results</h5>
+                <p class="card-text">{{ results|length }} quiz attempts</p>
+                <button class="btn btn-outline-secondary" disabled>View Below</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Your Quiz History</h5>
+            </div>
+            <div class="card-body">
+                {% if results %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Score</th>
+                                    <th>Percentage</th>
+                                    <th>Time Taken</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in results %}
+                                <tr>
+                                    <td>{{ result.timestamp[:16] }}</td>
+                                    <td>{{ result.score }}/{{ result.total_questions }}</td>
+                                    <td>
+                                        <span class="badge bg-{% if result.percentage >= 80 %}success{% elif result.percentage >= 60 %}warning{% else %}danger{% endif %}">
+                                            {{ "%.1f"|format(result.percentage) }}%
+                                        </span>
+                                    </td>
+                                    <td>{{ result.time_taken }}s</td>
+                                    <td>
+                                        {% if result.percentage >= 80 %}
+                                            <span class="text-success">Excellent 🎉</span>
+                                        {% elif result.percentage >= 60 %}
+                                            <span class="text-warning">Good 👍</span>
+                                        {% else %}
+                                            <span class="text-info">Needs Practice 📚</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-4">
+                        <h5>No quiz attempts yet</h5>
+                        <p>Take your first quiz to see your performance here!</p>
+                        <a href="{{ url_for('quiz') }}" class="btn btn-primary">Take First Quiz</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

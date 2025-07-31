@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>🎥 Arithmetic Progression Video Tutorials</h2>
+        <p class="lead">Comprehensive YouTube playlist covering all AP concepts from basics to advanced problems.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5>📚 Basic Concepts</h5>
+            </div>
+            <div class="card-body">
+                <h6>1. Introduction to Arithmetic Progressions</h6>
+                <p class="text-muted">Understanding what AP is and identifying AP sequences</p>
+                <a href="https://www.youtube.com/watch?v=VcNOtCE2n5U" target="_blank" class="btn btn-sm btn-outline-primary">Watch Video</a>
+                <small class="d-block mt-2">Duration: 12 minutes | Khan Academy</small>
+                
+                <hr>
+                
+                <h6>2. Finding Common Difference</h6>
+                <p class="text-muted">Learn to calculate and identify common difference in AP</p>
+                <a href="https://www.youtube.com/watch?v=7fOh4Y9G_0Q" target="_blank" class="btn btn-sm btn-outline-primary">Watch Video</a>
+                <small class="d-block mt-2">Duration: 8 minutes | Professor Leonard</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5>🔢 Finding Terms</h5>
+            </div>
+            <div class="card-body">
+                <h6>3. nth Term Formula</h6>
+                <p class="text-muted">Master the formula: a_n = a + (n-1)d</p>
+                <a href="https://www.youtube.com/watch?v=OvHfRvQsX08" target="_blank" class="btn btn-sm btn-outline-success">Watch Video</a>
+                <small class="d-block mt-2">Duration: 15 minutes | Organic Chemistry Tutor</small>
+                
+                <hr>
+                
+                <h6>4. Finding Missing Terms</h6>
+                <p class="text-muted">Techniques to find missing terms in AP sequences</p>
+                <a href="https://www.youtube.com/watch?v=eeKwTHD8Y-Q" target="_blank" class="btn btn-sm btn-outline-success">Watch Video</a>
+                <small class="d-block mt-2">Duration: 10 minutes | Math Antics</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-warning text-white">
+                <h5>➕ Sum of Terms</h5>
+            </div>
+            <div class="card-body">
+                <h6>5. Sum Formula</h6>
+                <p class="text-muted">Learn: S_n = n/2[2a + (n-1)d]</p>
+                <a href="https://www.youtube.com/watch?v=U6qWbLb5W9w" target="_blank" class="btn btn-sm btn-outline-warning">Watch Video</a>
+                <small class="d-block mt-2">Duration: 18 minutes | Khan Academy</small>
+                
+                <hr>
+                
+                <h6>6. Sum Applications</h6>
+                <p class="text-muted">Real-world problems involving sum of AP terms</p>
+                <a href="https://www.youtube.com/watch?v=9hSzCrNVfGI" target="_blank" class="btn btn-sm btn-outline-warning">Watch Video</a>
+                <small class="d-block mt-2">Duration: 14 minutes | Professor Leonard</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5>🎯 Advanced Topics</h5>
+            </div>
+            <div class="card-body">
+                <h6>7. Word Problems</h6>
+                <p class="text-muted">Solving complex real-world AP problems</p>
+                <a href="https://www.youtube.com/watch?v=XE6i9pLGcJw" target="_blank" class="btn btn-sm btn-outline-danger">Watch Video</a>
+                <small class="d-block mt-2">Duration: 22 minutes | The Organic Chemistry Tutor</small>
+                
+                <hr>
+                
+                <h6>8. AP in Competitive Exams</h6>
+                <p class="text-muted">Tricks and shortcuts for competitive exam problems</p>
+                <a href="https://www.youtube.com/watch?v=3fMfV7g2Wkc" target="_blank" class="btn btn-sm btn-outline-danger">Watch Video</a>
+                <small class="d-block mt-2">Duration: 25 minutes | Unacademy</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5>📝 Study Plan Recommendation</h5>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6>Week 1</h6>
+                        <ul>
+                            <li>Watch videos 1-2</li>
+                            <li>Take basic quiz</li>
+                            <li>Practice identification</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Week 2</h6>
+                        <ul>
+                            <li>Watch videos 3-4</li>
+                            <li>Practice term finding</li>
+                            <li>Take intermediate quiz</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Week 3</h6>
+                        <ul>
+                            <li>Watch videos 5-6</li>
+                            <li>Master sum formulas</li>
+                            <li>Practice applications</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Week 4</h6>
+                        <ul>
+                            <li>Watch videos 7-8</li>
+                            <li>Take advanced quiz</li>
+                            <li>Review weak areas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <a href="{{ url_for('quiz') }}" class="btn btn-success">Ready to Test Your Knowledge?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>🎬 Complete YouTube Playlist</h5>
+            </div>
+            <div class="card-body text-center">
+                <p>Access the complete curated playlist with all AP concepts:</p>
+                <a href="https://www.youtube.com/playlist?list=PLmdFyQYShrjf8ykH6-rKStzrJWx8OPdKQ" target="_blank" class="btn btn-lg btn-primary">
+                    🎥 Open Complete Playlist
+                </a>
+                <p class="mt-2 text-muted">Total Duration: ~2.5 hours | 15+ videos</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
